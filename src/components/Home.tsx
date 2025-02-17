@@ -1,9 +1,11 @@
 "use client"; // Mark this component as a client component
 
-import { useState } from "react"; // Removed useEffect import
+import { useState } from "react";
 import ChatBubble from "./ChatBubble";
 import ChatInput from "./ChatInput";
 import Navbar from "./Navbar";
+
+const backendUrl = "http://localhost:8000";
 
 interface Message {
   text: string;
@@ -13,6 +15,7 @@ interface Message {
 
 const Home = () => {
   const [messages, setMessages] = useState<Message[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const getFormattedTime = () => {
     if (typeof window !== "undefined") {
@@ -21,15 +24,51 @@ const Home = () => {
     return ""; // Avoid mismatch between server & client
   };
 
-  const sendMessage = (text: string) => {
+  const sendMessage = async (text: string) => {
     const userMessage: Message = { text, sender: "user", timestamp: getFormattedTime() };
-
     setMessages((prev) => [...prev, userMessage]);
 
-    setTimeout(() => {
-      const botReply: Message = { text: "I’m just a bot! 😊", sender: "bot", timestamp: getFormattedTime() };
-      setMessages((prev) => [...prev, botReply]);
-    }, 1000);
+    // Show loading state until we get a response
+    setIsLoading(true);
+
+    try {
+      const response = await fetch(`${backendUrl}/chat`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch response from backend");
+      }
+
+      const data = await response.json();
+      const botReply = data.response; // Updated to match API response format
+
+      // Add the bot's reply to messages
+      setMessages((prev) => [
+        ...prev,
+        {
+          text: botReply,
+          sender: "bot",
+          timestamp: getFormattedTime(),
+        },
+      ]);
+
+    } catch (error) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          text: "Sorry, something went wrong.",
+          sender: "bot",
+          timestamp: getFormattedTime(),
+        },
+      ]);
+    } finally {
+      setIsLoading(false); // Hide loading state once response is received
+    }
   };
 
   return (
@@ -39,6 +78,13 @@ const Home = () => {
         {messages.map((msg, index) => (
           <ChatBubble key={index} message={msg.text} sender={msg.sender} timestamp={msg.timestamp} />
         ))}
+        {isLoading && (
+          <ChatBubble
+            message="The bot is typing..."
+            sender="bot"
+            timestamp={getFormattedTime()}
+          />
+        )}
       </div>
       <ChatInput sendMessage={sendMessage} />
     </div>
