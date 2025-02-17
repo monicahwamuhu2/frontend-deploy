@@ -57,7 +57,8 @@ const Home = () => {
         },
       ]);
 
-    } catch (error) {
+    } catch {
+      // Catching and handling error without using the error object
       setMessages((prev) => [
         ...prev,
         {
