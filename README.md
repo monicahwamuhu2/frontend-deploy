@@ -6,6 +6,9 @@ This is the frontend for the chatbot application, built with **Next.js**, styled
 
 ### **Live Demo** - **https://frontend-deploy-git-master-monicahs-projects.vercel.app/**
 
+![WhatsApp Image 2025-02-17 at 17 58 27_56ae3276](https://github.com/user-attachments/assets/0487ba3e-f0e4-4c4a-b2c5-9d373857c923)
+
+
 ### **Tech Stack**
 
 - **Next.js**: A React framework that allows for building production-ready web applications with features like server-side rendering and static site generation.
