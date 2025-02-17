@@ -5,7 +5,8 @@ import ChatBubble from "./ChatBubble";
 import ChatInput from "./ChatInput";
 import Navbar from "./Navbar";
 
-const backendUrl = "https://backend-chatbot-production-8545.up.railway.app/";
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
 
 interface Message {
   text: string;

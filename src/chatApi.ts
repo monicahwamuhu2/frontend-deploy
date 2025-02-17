@@ -1,6 +1,7 @@
 // src/api/chatApi.ts
 
-const backendUrl = "https://backend-chatbot-production-8545.up.railway.app/"; // Correct URL for your backend
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+// Correct URL for your backend
 
 export const sendMessageToBackend = async (userInput: string) => {
     try {
