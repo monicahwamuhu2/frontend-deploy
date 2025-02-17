@@ -4,6 +4,8 @@
 
 This is the frontend for the chatbot application, built with **Next.js**, styled with **Tailwind CSS**, and deployed on **Vercel**. The frontend is designed to interact with the backend by sending user input and displaying the chatbot's responses in real-time.
 
+### **Live Demo** - **https://frontend-deploy-git-master-monicahs-projects.vercel.app/**
+
 ### **Tech Stack**
 
 - **Next.js**: A React framework that allows for building production-ready web applications with features like server-side rendering and static site generation.
