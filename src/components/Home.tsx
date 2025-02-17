@@ -1,6 +1,6 @@
 "use client"; // Mark this component as a client component
 
-import { useState, useEffect } from "react";
+import { useState } from "react"; // Removed useEffect import
 import ChatBubble from "./ChatBubble";
 import ChatInput from "./ChatInput";
 import Navbar from "./Navbar";
