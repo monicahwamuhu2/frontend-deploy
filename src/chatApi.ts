@@ -1,7 +1,4 @@
-// src/api/chatApi.ts
-
-const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-// Correct URL for your backend
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://backend-chatbot-production-8545.up.railway.app';
 
 export const sendMessageToBackend = async (userInput: string) => {
     try {
@@ -9,19 +6,19 @@ export const sendMessageToBackend = async (userInput: string) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "Accept": "application/json",
             },
-            body: JSON.stringify({ text: userInput }),  // Pass the user input as JSON
+            body: JSON.stringify({ text: userInput }),
         });
 
         if (!response.ok) {
-            throw new Error("Failed to get response from the backend");
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const data = await response.json();
-        return data.response; // Returning the response from the backend
-
+        return data.response;
     } catch (error) {
         console.error("Error:", error);
-        return "Sorry, there was an error processing your request."; // Default error message
+        throw error; // Let the component handle the error
     }
 };
