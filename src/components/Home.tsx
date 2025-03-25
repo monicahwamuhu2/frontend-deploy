@@ -47,7 +47,7 @@ const Home = () => {
 
     // Delay welcome message to prevent hydration mismatch
     const welcomeMessage: Message = {
-      text: "Hello! I&apos;m a mental health support chatbot. How are you feeling today?",
+      text: "Hello! I am Pandora. How are you feeling today?",
       sender: "bot",
       timestamp: getFormattedTime(),
       id: generateId()
