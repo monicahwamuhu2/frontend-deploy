@@ -42,12 +42,9 @@ const Home = () => {
     // Mark as client-side
     setIsClient(true);
 
-    // Create a local variable to capture the current ref
-    const currentBgRef = bgRef.current;
-
     // Delay welcome message to prevent hydration mismatch
     const welcomeMessage: Message = {
-      text: "Hello! I am Pandora. How are you feeling today?",
+      text: "Hello! I'm a mental health support chatbot. How are you feeling today?",
       sender: "bot",
       timestamp: getFormattedTime(),
       id: generateId()
@@ -58,21 +55,21 @@ const Home = () => {
 
     // Create digital effects only on client side
     const safeCreateDigitalEffects = () => {
-      if (currentBgRef) {
+      if (bgRef.current) {
         // Clear existing elements
-        currentBgRef.innerHTML = '';
+        bgRef.current.innerHTML = '';
         
         // Create digital lines and particles
         for (let i = 0; i < 10; i++) {
-          createDigitalLine(currentBgRef);
+          createDigitalLine(bgRef.current);
         }
         
         for (let i = 0; i < 6; i++) {
-          createVerticalDigitalLine(currentBgRef);
+          createVerticalDigitalLine(bgRef.current);
         }
         
         for (let i = 0; i < 20; i++) {
-          createParticle(currentBgRef);
+          createParticle(bgRef.current);
         }
       }
     };
@@ -82,8 +79,8 @@ const Home = () => {
 
     // Cleanup function
     return () => {
-      if (currentBgRef) {
-        currentBgRef.innerHTML = '';
+      if (bgRef.current) {
+        bgRef.current.innerHTML = '';
       }
     };
   }, []);
@@ -190,7 +187,7 @@ const Home = () => {
       setMessages(prev => [
         ...prev,
         {
-          text: "Sorry, I couldn&apos;t connect to the server. Please try again.",
+          text: "Sorry, I couldn't connect to the server. Please try again.",
           sender: "bot",
           timestamp: getFormattedTime(),
           id: generateId()
@@ -229,7 +226,7 @@ const Home = () => {
               Mental Health Support Assistant
             </h1>
             <p className="text-gray-600 dark:text-gray-300 mt-2">
-              Talk to our AI assistant about how you&apos;re feeling today
+              Talk to our AI assistant about how you're feeling today
             </p>
           </div>
           
