@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { Moon, Sun, HelpCircle, X } from "lucide-react";
 
 const Navbar: React.FC = () => {
@@ -13,8 +14,8 @@ const Navbar: React.FC = () => {
   // Example prompts for help modal
   const examplePrompts = [
     "I feel sad today.",
-    "I'm stressed about work.",
-    "I can't sleep at night.",
+    "I&apos;m stressed about work.",
+    "I can&apos;t sleep at night.",
     "I feel anxious about my future.",
     "I need advice about stress."
   ];
@@ -97,7 +98,7 @@ const Navbar: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo */}
-          <a 
+          <Link 
             href="/" 
             className="text-xl md:text-2xl font-bold flex items-center gap-2 
             bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent"
@@ -110,7 +111,7 @@ const Navbar: React.FC = () => {
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 16h2v-2h-2v2zm2-3V8h-2v7h2z" />
             </svg>
             Mindful Connect
-          </a>
+          </Link>
           
           {/* Action Buttons */}
           <div className="flex items-center gap-3">
@@ -208,7 +209,7 @@ const Navbar: React.FC = () => {
                   Important:
                 </p>
                 <p className="text-amber-700 dark:text-amber-300">
-                  If you're experiencing a crisis, contact a mental health 
+                  If you&apos;re experiencing a crisis, contact a mental health 
                   professional or your local emergency number.
                 </p>
               </div>
