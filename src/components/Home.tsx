@@ -44,7 +44,7 @@ const Home = () => {
 
     // Delay welcome message to prevent hydration mismatch
     const welcomeMessage: Message = {
-      text: "Hello! I'm a mental health support chatbot. How are you feeling today?",
+      text: "Hello! I am a mental health support chatbot. How are you feeling today?",
       sender: "bot",
       timestamp: getFormattedTime(),
       id: generateId()
@@ -187,7 +187,7 @@ const Home = () => {
       setMessages(prev => [
         ...prev,
         {
-          text: "Sorry, I couldn't connect to the server. Please try again.",
+          text: "Sorry, I could not connect to the server. Please try again.",
           sender: "bot",
           timestamp: getFormattedTime(),
           id: generateId()
@@ -226,7 +226,7 @@ const Home = () => {
               Mental Health Support Assistant
             </h1>
             <p className="text-gray-600 dark:text-gray-300 mt-2">
-              Talk to our AI assistant about how you're feeling today
+              Talk to our AI assistant about how you are feeling today
             </p>
           </div>
           
