@@ -14,8 +14,8 @@ const Navbar: React.FC = () => {
   // Example prompts for help modal
   const examplePrompts = [
     "I feel sad today.",
-    "I&apos;m stressed about work.",
-    "I can&apos;t sleep at night.",
+    "I am stressed about work.",
+    "I can't sleep at night.",
     "I feel anxious about my future.",
     "I need advice about stress."
   ];
@@ -209,7 +209,7 @@ const Navbar: React.FC = () => {
                   Important:
                 </p>
                 <p className="text-amber-700 dark:text-amber-300">
-                  If you&apos;re experiencing a crisis, contact a mental health 
+                  If you're experiencing a crisis, contact a mental health 
                   professional or your local emergency number.
                 </p>
               </div>
