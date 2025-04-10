@@ -6,7 +6,8 @@ This is the frontend for the chatbot application, built with **Next.js**, styled
 
 ### **Live Demo** - **https://frontend-deploy-git-master-monicahs-projects.vercel.app/**
 
-![WhatsApp Image 2025-02-17 at 17 58 27_56ae3276](https://github.com/user-attachments/assets/0487ba3e-f0e4-4c4a-b2c5-9d373857c923)
+![WhatsApp Image 2025-04-10 at 07 02 42_eaf0cba7](https://github.com/user-attachments/assets/d22731c4-a9d1-49c9-8059-1bc1dbfe0ca5)
+
 
 
 ### **Tech Stack**
